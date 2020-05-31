@@ -23,13 +23,12 @@ This microservice offer an endpoint for PrimeiroPay Capture service
 
 **Auth required** : Bearer
 
-Provide authorizationId (path), amount and amount data to do the request.
+Provide payment.id (path), amount and currency data to do the request.
 ```json
 {
 	"entity_id": "[hash key]",
 	"amount":"[string]",
-	"currency":"[string]",
-	"paymentType":"[string]"
+	"currency":"[string]"
 }
 ```
 **Data example** All fields must be sent.
@@ -37,8 +36,7 @@ Provide authorizationId (path), amount and amount data to do the request.
 {
 	"entity_id": "8ac7a4ca6db97ef1016dbe9214e70aac",
 	"amount":"10.00",
-	"currency":"EUR",
-	"paymentType":"DB"
+	"currency":"EUR"
 }
 ```
 
