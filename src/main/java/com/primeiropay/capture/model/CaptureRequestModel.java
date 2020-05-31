@@ -10,8 +10,6 @@ public class CaptureRequestModel {
 	
 	private String currency;
 	
-	private String paymentType;
-	
 	public String getEntity_id() {
 		return entity_id;
 	}
@@ -36,19 +34,10 @@ public class CaptureRequestModel {
 		this.currency = currency;
 	}
 
-	public String getPaymentType() {
-		return paymentType;
-	}
-
-	public void setPaymentType(String paymentType) {
-		this.paymentType = paymentType;
-	}
-
 	@Override
 	public String toString() {		
 		return "entityId="+getEntity_id()
 			+	"&amount="+getAmount()
-			+	"&currency="+getCurrency()
-			+	"&paymentType="+getPaymentType();
+			+	"&currency="+getCurrency();
 	}
 }

@@ -55,13 +55,17 @@ public class HTTPServerVerticle extends AbstractVerticle {
         return serverPort;
     }
     
+    private String getCaptureParam() {
+    	return "&paymentType=CP";
+    }
+    
     private void doCapture(RoutingContext rc) {
         CaptureRequestModel captureRequest = rc.getBodyAsJson().mapTo(CaptureRequestModel.class);
     	String authId = rc.request().getParam("id");
     	
         JsonObject jsonResponse = new JsonObject();
         try {
-        	jsonResponse = captureToPrimeiroPay(captureRequest.toString(),
+        	jsonResponse = captureToPrimeiroPay(captureRequest.toString() + getCaptureParam(),
         			authId, rc.request().getHeader("Authorization"));
 		} catch (IOException e) {
 			LOGGER.error("HTTP Post error", e.getCause());
